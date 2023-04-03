@@ -1,4 +1,4 @@
-from typing import List
+#from typing import List
 class Solution:
     def wiggleMaxLength(self, nums: List[int]) -> int:
         res = 1
@@ -10,7 +10,9 @@ class Solution:
                 res += 1
                 curD = preD
         return res
+"""
 nums = [1, 7, 4, 5, 5]
 solution = Solution()
 max_length = solution.wiggleMaxLength(nums)
 print(max_length)
+"""
