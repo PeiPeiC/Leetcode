@@ -33,3 +33,23 @@ So, by using (start+path)%n as the index, we can ensure that we iterate over all
 and avoid accessing elements outside the bounds of the gas and cost arrays.
 
 """
+
+"""
+2.Greedy
+
+"""
+class Solution:
+  def canCompleteCircuit(self,gas:List[int],cost:List[int])->int:
+    total = 0
+    currTank = 0
+    start = 0
+    for i in range(len(gas)):
+        currTank += gas[i]-cost[i]
+        if currTank < 0:
+            start = i+1
+            currTank = 0
+        total += gas[i]-cost[i]
+    if total < 0:
+        return -1
+    return start
+          
