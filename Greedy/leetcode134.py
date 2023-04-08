@@ -36,20 +36,20 @@ and avoid accessing elements outside the bounds of the gas and cost arrays.
 
 """
 2.Greedy
-
+Time compleity o(n)
 """
 class Solution:
   def canCompleteCircuit(self,gas:List[int],cost:List[int])->int:
     total = 0
     currTank = 0
     start = 0
-    for i in range(len(gas)):
+    for i in range(len(gas)):  # check potential start station from index 0
         currTank += gas[i]-cost[i]
-        if currTank < 0:
-            start = i+1
+        if currTank < 0:  #if there is no enough gas in current tank to go next station,
+            start = i+1   # restart from next station 
             currTank = 0
         total += gas[i]-cost[i]
-    if total < 0:
+    if total < 0: # if total gas is not enough for traveling through all stations, the circuit can not be completed
         return -1
     return start
           
